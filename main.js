@@ -232,3 +232,4 @@ function validateSign() {
     }
     document.getElementById("result").innerHTML = result;
 }
+module.exports = validateSign;
