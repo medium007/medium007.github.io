@@ -26,6 +26,16 @@ shuffleArray(pairs);
 
 let x1 = 0;
 
+let details = navigator.userAgent;
+let regexp = /android|iphone|kindle|ipad/i;
+let isMobileDevice = regexp.test(details);
+
+if (isMobileDevice) {
+    document.getElementById("result").innerHTML = "Mobile!"
+} else {
+    document.getElementById("result").innerHTML = "PC!"
+}
+
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
