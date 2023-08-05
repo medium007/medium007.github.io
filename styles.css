@@ -55,3 +55,41 @@
       width: 100%;
     }
   }
+
+  .block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .block:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .blockRed {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #aa041a;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .blockRed:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .center {
+    text-align: center;
+  }

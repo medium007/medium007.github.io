@@ -26,15 +26,17 @@ shuffleArray(pairs);
 
 let x1 = 0;
 
-let details = navigator.userAgent;
-let regexp = /android|iphone|kindle|ipad/i;
-let isMobileDevice = regexp.test(details);
+let forgotten_pairs = "To repeat: ";
 
-if (isMobileDevice) {
-    document.getElementById("result").innerHTML = "Mobile!"
-} else {
-    document.getElementById("result").innerHTML = "PC!"
-}
+// let details = navigator.userAgent;
+// let regexp = /android|iphone|kindle|ipad/i;
+// let isMobileDevice = regexp.test(details);
+
+// if (isMobileDevice) {
+//     document.getElementById("result").innerHTML = "Mobile!"
+// } else {
+//     document.getElementById("result").innerHTML = "PC!"
+// }
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -50,5 +52,17 @@ function nextPair() {
     let result = pairs.shift();
     x1 += 1;
     document.getElementById("result").innerHTML = result;
-    document.getElementById("counter").innerHTML = x1;
+    document.getElementById("counter").innerHTML = "Pairs: " + x1;
+}
+
+function forgottenPair() {
+    let forgotten_pair = document.getElementById("result").innerHTML;
+    let result = pairs.shift();
+    x1 += 1;
+    document.getElementById("result").innerHTML = result;
+    document.getElementById("counter").innerHTML = "Pairs: " + x1;
+
+    forgotten_pairs = forgotten_pairs + forgotten_pair + ", ";
+
+    document.getElementById("forgot_list").innerHTML = forgotten_pairs;
 }
