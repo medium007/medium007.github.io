@@ -27,13 +27,7 @@ shuffleArray(pairs);
 const toRepeatCookie = "torepeat";
 let x1 = 0;
 
-let forgotten_pairs = "";
-
-let forgotten_pairs_cookies = getCookie(toRepeatCookie);
-
-if (!forgotten_pairs_cookies.localeCompare("")) {
-    forgotten_pairs = forgotten_pairs_cookies;
-}
+let forgotten_pairs = getCookie(toRepeatCookie);
 
 // let details = navigator.userAgent;
 // let regexp = /android|iphone|kindle|ipad/i;
