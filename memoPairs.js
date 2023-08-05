@@ -24,9 +24,6 @@ let pairs = ["AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "
 
 shuffleArray(pairs);
 
-let x1 = 0;
-let forgotten_pairs = "";
-
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -37,20 +34,36 @@ function shuffleArray(array) {
     }
 }
 
-function nextPair() {
-    let result = pairs.shift();
-    x1 += 1;
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("counter").innerHTML = "Pairs: " + x1;
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max)
 }
 
-function forgottenPair() {
-    let forgotten_pair = document.getElementById("result").innerHTML;
-    let result = pairs.shift();
-    x1 += 1;
-    document.getElementById("result").innerHTML = result;
-    document.getElementById("counter").innerHTML = "Pairs: " + x1;
+function nextSet() {
+    const sets = document.getElementById("sets");
+    sets.style.visibility = 'visible';
 
-    forgotten_pairs = forgotten_pairs + forgotten_pair + ", ";
-    document.getElementById("forgot_list").innerHTML = forgotten_pairs;
+    let n = getRandomInt(3) + 3;
+    let randomSet = "";
+
+    for (let i = 0; i < n; i++) {
+        randomSet = randomSet + pairs.shift() + " ";
+    }
+    document.getElementById("corners").innerHTML = randomSet;
+
+    n = getRandomInt(3) + 5;
+    randomSet = "";
+
+    for (let i = 0; i < n; i++) {
+        randomSet = randomSet + pairs.shift() + " ";
+    }
+    document.getElementById("edges").innerHTML = randomSet;
+}
+
+function hideUnhideSet() {
+    const sets = document.getElementById("sets");
+    if (sets.style.visibility == 'visible') {
+        sets.style.visibility = 'hidden';
+    } else {
+        sets.style.visibility = 'visible';
+    }
 }

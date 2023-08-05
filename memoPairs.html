@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="header">
-    <h1>Letter Pairs</h1>    
+    <h1>Memo Letter Pairs</h1>    
 </div>
 <div class="topnav">
     <a href="index.html">Main page</a>
@@ -16,13 +16,14 @@
 </div>
 <div class="row">
     <div class="column">
-        <h2 class="center" id="result">Click to start</h2>
-        <button type="button" class="block" onclick="nextPair()">Next pair</button>
-        <p id="counter">Pairs: </p>
-        <button type="button" class="blockRed" onclick="forgottenPair()">I don't remember it</button>
-        <h3>To repeat: </h3>
-        <h3 id="forgot_list"></h3>
-        <script src="letterPairs.js"></script>
+        <div id="sets">
+            <h2 class="center" id="corners">Click to start</h2>
+            <h2 class="center" id="edges"></h2>
+        </div>
+        <button type="button" class="block" onclick="nextSet()">Next set</button>
+        <br>
+        <button type="button" class="blockBlue" onclick="hideUnhideSet()">Hide/Unhide</button>
+        <script src="memoPairs.js"></script>
     </div>
 </div>
 </body>
