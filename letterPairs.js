@@ -24,9 +24,16 @@ let pairs= ["AA", "AB", "AC", "AD", "AE", "AF", "AG", "AH", "AI", "AJ", "AK", "A
 
 shuffleArray(pairs);
 
+const toRepeatCookie = "torepeat";
 let x1 = 0;
 
-let forgotten_pairs = "To repeat: ";
+let forgotten_pairs = "";
+
+let forgotten_pairs_cookies = getCookie(toRepeatCookie);
+
+if (!forgotten_pairs_cookies.localeCompare("")) {
+    forgotten_pairs = forgotten_pairs_cookies;
+}
 
 // let details = navigator.userAgent;
 // let regexp = /android|iphone|kindle|ipad/i;
@@ -64,5 +71,38 @@ function forgottenPair() {
 
     forgotten_pairs = forgotten_pairs + forgotten_pair + ", ";
 
+    console.log(toRepeatCookie);
+    console.log(forgotten_pairs);
+    setCookie(toRepeatCookie, forgotten_pairs, 7);
+
     document.getElementById("forgot_list").innerHTML = forgotten_pairs;
 }
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    console.log(cname + "=" + cvalue + ";" + expires + ";path=/");
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    console.log(document.cookie)
+  }
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function displayCookies() {
+    window.alert(decodeURIComponent(document.cookie))
+  }
