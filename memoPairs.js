@@ -57,13 +57,31 @@ function nextSet() {
         randomSet = randomSet + pairs.shift() + " ";
     }
     document.getElementById("edges").innerHTML = randomSet;
+    start();
 }
 
 function hideUnhideSet() {
     const sets = document.getElementById("sets");
     if (sets.style.visibility == 'visible') {
         sets.style.visibility = 'hidden';
+        stop();
     } else {
         sets.style.visibility = 'visible';
     }
 }
+
+var timerInterval = null;
+
+function changeValue() {
+    document.getElementById("timer").innerHTML = ++value;
+  }
+  
+function start() {
+    stop(); // stoping the previous counting (if any)
+    value = 0;
+    timerInterval = setInterval(changeValue, 1000);  
+  }
+
+function stop() {
+    clearInterval(timerInterval);
+  }
